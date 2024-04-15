@@ -1,5 +1,5 @@
 ﻿function parseCount(value) {
-    if (Number.parseFloat(value) == NaN) {
+    if (!Number.parseFloat(value) || Number.parseFloat(value) == NaN) {
       throw new Error("Невалидное значение");
     } else {
       return Number.parseFloat(value);
@@ -11,7 +11,7 @@
       return parseCount(value);
     } catch (error) {
       return error;
-    }
+           }
   }
   
   class Triangle {
@@ -38,14 +38,15 @@
   function getTriangle(a, b, c) {
     try {
       return new Triangle(a, b, c);
-    } catch (err) {
+    }
+    catch (err) {
       return {
         get area() {
-          return "Ошибка! Треугольник не существует";
+          return ("Ошибка! Треугольник не существует");
         },
         get perimeter() {
-          return "Ошибка! Треугольник не существует";
+          return ("Ошибка! Треугольник не существует");
         }
       }
     }
-  }  
+  }
